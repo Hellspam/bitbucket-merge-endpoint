@@ -1,0 +1,28 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <rest name="Merge Endpoint" i18n-name-key="merge-endpoint.name" key="merge-endpoint" path="/merge" version="1.0">
+        <description key="merge-endpoint.description">The Merge endpoint plugin</description>
+    </rest>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="merge-endpoint"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="merge-endpoint-resources" name="merge-endpoint Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="merge-endpoint.css" location="/css/merge-endpoint.css"/>
+        <resource type="download" name="merge-endpoint.js" location="/js/merge-endpoint.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>merge-endpoint</context>
+    </web-resource>
+    
+</atlassian-plugin>
